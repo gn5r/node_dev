@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  node:
+    build:
+      context: .
+      args:
+        - WORKDIR=$WORKDIR
+        - PORT=$PORT
+    image: gn5r/node_dev
+    container_name: node
+    restart: always
+    tty: true
+    volumes:
+      - ./workspace:${WORKDIR}
+    ports:
+      - 8080:${PORT}
